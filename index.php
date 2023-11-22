@@ -37,7 +37,6 @@
             'vote' => 2,
             'distance_to_center' => 50
         ],
-
     ];
 ?>
 
@@ -65,25 +64,20 @@
             <tbody>
                 <?php foreach($hotels as $hotel) {
                     ?>
-                    <tr>
-                        <?php foreach($hotel as $key => $detail) {
-                            ?>
-                            <td class="text-center"><?php 
-                                if($key === 'parking') {
-                                    if($detail) echo 'yes';
+                        <tr>
+                            <td class="text-center"><?php echo $hotel['name']?></td>
+                            <td class="text-center"><?php echo $hotel['description']?></td>
+                            <td class="text-center">
+                                <?php
+                                    if($hotel['parking']) echo 'yes';
                                     else echo 'no';
-                                }
-                                else {
-                                    echo $detail;
-                                    if($key === 'distance_to_center') echo ' km';
-                                }
-                            ?></td>
-                            <?php
-                        }
-                        ?>
-                    </tr>
+                                ?>
+                            </td>
+                            <td class="text-center"><?php echo $hotel['vote']?></td>
+                            <td class="text-center"><?php echo $hotel['distance_to_center']?> km</td>
+                        </tr>
                     <?php
-                } 
+                    }
                 ?>
             </tbody>
         </table>
