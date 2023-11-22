@@ -39,9 +39,45 @@
         ],
 
     ];
-    foreach($hotels as $hotel) {
-        foreach($hotel as $key => $value) {
-            echo $key.'='.$value;
-        }
-    }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <?php foreach($hotels[0] as $key => $value) {
+                        ?>
+                        <th scope="col"><?php echo $key ?></th>
+                        <?php
+                    }
+                    ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($hotels as $hotel) {
+                    ?>
+                    <tr>
+                        <?php foreach($hotel as $detail) {
+                            ?>
+                            <td><?php echo  $detail ?></td>
+                            <?php
+                        }
+                        ?>
+                    </tr>
+                    <?php
+                } 
+                ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
