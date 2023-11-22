@@ -51,12 +51,12 @@
 </head>
 <body>
     <div class="container">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <?php foreach($hotels[0] as $key => $value) {
                         ?>
-                        <th scope="col"><?php echo $key ?></th>
+                        <th class="text-center" scope="col"><?php echo $key ?></th>
                         <?php
                     }
                     ?>
@@ -66,9 +66,15 @@
                 <?php foreach($hotels as $hotel) {
                     ?>
                     <tr>
-                        <?php foreach($hotel as $detail) {
+                        <?php foreach($hotel as $key => $detail) {
                             ?>
-                            <td><?php echo  $detail ?></td>
+                            <td class="text-center"><?php 
+                                if($key === 'parking') {
+                                    if($detail) echo 'yes';
+                                    else echo 'no';
+                                }
+                                else echo  $detail;
+                            ?></td>
                             <?php
                         }
                         ?>
